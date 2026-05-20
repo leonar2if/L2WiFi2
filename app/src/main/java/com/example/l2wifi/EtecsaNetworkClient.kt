@@ -8,9 +8,7 @@ import java.util.regex.Pattern
 object EtecsaNetworkClient {
 
     private const val LOGIN_URL = "https://secure.etecsa.net:8443/Dispatcher"
-    private const     private const val LOGOUT_URL = "https://secure.etecsa.net:8443/LogoutServlet"
     private const val LOGOUT_URL = "https://secure.etecsa.net:8443/LogoutServlet"
-    LOGOUT_URL = "https://secure.etecsa.net:8443/LogoutServlet"
     private const val QUERY_URL = "https://secure.etecsa.net:8443/EtecsaQueryServlet"
 
     fun iniciarSesionEtecsa(user: String, pass: String): String? {
@@ -22,12 +20,13 @@ object EtecsaNetworkClient {
             conn.connectTimeout = 6000
 
             val postData = "username=${user}&password=${pass}"
+            val writer = OutputStreamWriter(conn.outputStream)
             writer.write(postData)
             writer.flush()
 
             if (conn.responseCode == HttpURLConnection.HTTP_OK) {
                 val responseText = conn.inputStream.bufferedReader().use { it.readText() }
-
+                
                 // Expresión regular para cazar el token dinámico 'attribute' del portal cautivo
                 val pattern = Pattern.compile("attribute=([^&\"'>]+)")
                 val matcher = pattern.matcher(responseText)
@@ -54,9 +53,9 @@ object EtecsaNetworkClient {
             val conn = url.openConnection() as HttpURLConnection
             conn.requestMethod = "GET"
             conn.connectTimeout = 4000
-
+            
             if (conn.responseCode == HttpURLConnection.HTTP_OK) {
-                "01:45:12"
+                "01:45:12" 
             } else {
                 "00:00:00"
             }
