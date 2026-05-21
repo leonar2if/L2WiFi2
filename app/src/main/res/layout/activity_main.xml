@@ -91,7 +91,7 @@
         app:layout_constraintBottom_toBottomOf="@+id/bottomNavigation"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:translateY="-28dp"
+        android:translatationY="-28dp"
         android:visibility="visible" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
