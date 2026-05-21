@@ -26,25 +26,13 @@ object EtecsaNetworkClient {
 
             if (conn.responseCode == HttpURLConnection.HTTP_OK) {
                 val responseText = conn.inputStream.bufferedReader().use { it.readText() }
-                
-                // Expresión regular para cazar el token dinámico 'attribute' del portal cautivo
                 val pattern = Pattern.compile("attribute=([^&\"'>]+)")
                 val matcher = pattern.matcher(responseText)
-                if (matcher.find()) {
-                    matcher.group(1)
-                } else {
-                    if (responseText.contains("su saldo es insuficiente") || responseText.contains("No dispone de saldo")) {
-                        "SIN_SALDO"
-                    } else {
-                        null
-                    }
-                }
-            } else {
-                null
-            }
-        } catch (e: Exception) {
-            null
-        }
+                if (matcher.find()) matcher.group(1)
+                else if (responseText.contains("su saldo es insuficiente") || responseText.contains("No dispone de saldo")) "SIN_SALDO"
+                else null
+            } else null
+        } catch (e: Exception) { null }
     }
 
     fun consultarSaldoEtecsa(attributeUuid: String): String {
@@ -53,15 +41,8 @@ object EtecsaNetworkClient {
             val conn = url.openConnection() as HttpURLConnection
             conn.requestMethod = "GET"
             conn.connectTimeout = 4000
-            
-            if (conn.responseCode == HttpURLConnection.HTTP_OK) {
-                "01:45:12" 
-            } else {
-                "00:00:00"
-            }
-        } catch (e: Exception) {
-            "00:00:00"
-        }
+            if (conn.responseCode == HttpURLConnection.HTTP_OK) "01:45:12" else "00:00:00"
+        } catch (e: Exception) { "00:00:00" }
     }
 
     fun cerrarSesionEtecsa(attributeUuid: String): Boolean {
@@ -71,8 +52,6 @@ object EtecsaNetworkClient {
             conn.requestMethod = "GET"
             conn.connectTimeout = 5000
             conn.responseCode == HttpURLConnection.HTTP_OK
-        } catch (e: Exception) {
-            false
-        }
+        } catch (e: Exception) { false }
     }
 }
