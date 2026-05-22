@@ -9,6 +9,7 @@ import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -34,10 +35,10 @@ class MainActivity : AppCompatActivity() {
         themeSwitch.setOnCheckedChangeListener { _, isChecked ->
             if (isChecked) {
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
-                themeSwitch.thumbDrawable = getDrawable(R.drawable.ic_sun)
+                themeSwitch.thumbDrawable = ContextCompat.getDrawable(this, R.drawable.ic_sun)
             } else {
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
-                themeSwitch.thumb = getDrawable(R.drawable.ic_moon)
+                themeSwitch.thumbDrawable = ContextCompat.getDrawable(this, R.drawable.ic_moon)
             }
         }
 
