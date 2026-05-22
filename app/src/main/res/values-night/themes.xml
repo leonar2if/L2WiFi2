@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <style name="Theme.L2Wifi" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Colores para modo oscuro (valores diferentes para probar) -->
         <item name="colorBackground">#121212</item>
         <item name="cardColor">#2C2C2C</item>
         <item name="textColorPrimary">#E0E0E0</item>
