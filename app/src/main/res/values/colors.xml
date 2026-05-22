@@ -1,9 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- Colores base -->
     <color name="colorBackground">#F8F9FA</color>
     <color name="cardColor">#FFFFFF</color>
     <color name="textColorPrimary">#202124</color>
     <color name="iconColor">#5F6368</color>
     <color name="bottomNavColor">#FFFFFF</color>
     <color name="colorPrimary">#0A1929</color>
+    <color name="colorPrimaryVariant">#0A1929</color>
+    
+    <!-- Colores que te faltan -->
+    <color name="softSurface">#F2F2F6</color>
+    <color name="accentBlue">#2A62CC</color>
+    <color name="successGreen">#4CAF50</color>
+    <color name="dangerRed">#E53935</color>
 </resources>
