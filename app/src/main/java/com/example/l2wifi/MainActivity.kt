@@ -34,7 +34,7 @@ class MainActivity : AppCompatActivity() {
         themeSwitch.setOnCheckedChangeListener { _, isChecked ->
             if (isChecked) {
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
-                themeSwitch.thumb = getDrawable(R.drawable.ic_sun)
+                themeSwitch.thumbDrawable = getDrawable(R.drawable.ic_sun)
             } else {
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
                 themeSwitch.thumb = getDrawable(R.drawable.ic_moon)
