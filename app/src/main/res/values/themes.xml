@@ -1,13 +1,7 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
-    <style name="Base.Theme.L2Wifi" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
-    </style>
-
-    <style name="Theme.L2Wifi" parent="Base.Theme.L2Wifi" />
-
-    <style name="Theme.L2WiFi" parent="Theme.Material3.DayNight.NoActionBar">
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.L2Wifi" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Colores para modo claro -->
         <item name="colorBackground">#F8F9FA</item>
         <item name="cardColor">#FFFFFF</item>
         <item name="textColorPrimary">#202124</item>
@@ -15,5 +9,6 @@
         <item name="bottomNavColor">#FFFFFF</item>
         <item name="colorPrimary">#0A1929</item>
         <item name="colorPrimaryVariant">#0A1929</item>
+        <item name="android:windowBackground">@color/colorBackground</item>
     </style>
 </resources>
