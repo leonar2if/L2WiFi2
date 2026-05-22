@@ -5,4 +5,5 @@
     <attr name="textColorPrimary" format="color" />
     <attr name="iconColor" format="color" />
     <attr name="bottomNavColor" format="color" />
+    <attr name="colorPrimary" format="color" />   <!-- este también se usa -->
 </resources>
